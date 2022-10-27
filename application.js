@@ -1,11 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./Routes/routes')
 
 
 var app = express(); 
 
 app.use(express.json());
 
+// Add Router for CURD Operation
+app.use("/user",routes)
 
 app.use('/welcome', (req, res) => {
     res.send("<h2>   Welcome To                   </h2>"+
