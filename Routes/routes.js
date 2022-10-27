@@ -9,5 +9,11 @@ router.post("/signUp",controller.signUp)
 
 router.post("/login",controller.login)
 
+
+router.get("/allUsers",controller.getAllUser)
+
+
+
+
 // Export
 module.exports = router;

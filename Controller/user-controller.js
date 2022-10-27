@@ -2,6 +2,21 @@ const UserModel = require("../Model/users")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
+exports.getAllUser = (req,res,next) =>{
+    if(req.user){
+        next();
+    }
+    else{
+        res.status(401).json({message:"Token Authentication Fails...!"})
+    }
+    const user = UserModel;
+    user.find().then((data) => {
+        res.send(data);
+    }).catch((err) => {
+        res.send(err);
+    })
+}
+
 
 exports.signUp = (req,res) => {
     console.log(req.body);
